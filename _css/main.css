@@ -1,0 +1,146 @@
+/*
+	Student Online Registration System
+    by Johh Mwaipopo
+*/
+
+/*  ======global styles ======= */
+
+body {
+	font-family: Georgia, serif;
+	background: #bbb url(../_images/page_background.jpg);
+	margin: 0;
+	padding: 0;
+	}
+
+p, h1, h2, h3, h4, h5, h6, li {
+	margin: 1ex 1em;
+	}
+	
+div#outerDiv {
+	width: 1200px;
+	margin: 0 auto;
+	background: #fff url(../_images/banner.jpg) no-repeat;
+	}
+
+
+/*  ===== header ===== */
+
+div#header {
+	height: 130px;
+	position: relative;
+	}
+	
+div#content {
+    background-color: #fff;
+    padding: 5px;
+}
+
+/* ===== main content ===== */
+
+#content div#mainContent {
+    float: left;
+    width: 850px;
+    margin: 0 0;
+    padding: 0 15px;
+}
+
+#mainContent p {
+    font-family: Georgia, serif;
+    font-size: 0.9em;
+    line-height: 1.4em;
+    color: #000;
+    margin: 1ex 0;
+}
+
+#mainContent h1, #mainContent h2, #mainContent h3, #mainContent h4 {
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+#mainContent h1 {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #1b9d95;
+    margin: 0 0 .4ex 0;
+}
+
+#mainContent h2 {
+    font-size: 1.2em;
+    color: #3C3809;
+    margin: .4ex 0;
+}
+
+#mainContent h4 {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #666;
+    margin: 1ex 0 -.2ex 0;
+}
+
+#mainContent ul {
+    font-family: Georgia, serif;
+    font-size: 0.9em;
+    margin: 0 0 1.4ex 1em;
+}
+
+#mainContent table {
+			border-width: 6px;
+			border-color: #1b9d95;
+			margin-left: 10px;
+			border-style: none;
+			}
+	
+/* ===== sideBar ==== */
+
+#content div#sideBar {
+	float:right;
+	width: 265px;
+	padding: 0 10px;
+	margin: 0;
+	border-left: solid #aaa 1px;
+	}
+	
+#sideBar p {
+	font-family: "Trebuchet MS", sans-serif;
+	font-size: .8em;
+	line-height: 1.2em;
+	color: #666;
+	margin: 0 0 3ex 0;
+	}
+
+#sideBar h3{
+	font-family: "Trebuchet MS", sans-serif;
+	font-size: 1em;
+	color: #1b9d95;
+	margin: 1ex 0 .5ex 0;
+	}
+
+
+				
+/* ==== footer ==== */
+
+div#footer {
+		clear: both;
+		background: transparent;
+		margin: 0 auto;
+		padding: 5px;
+		}
+
+#footer p {
+	font-family: "Trebuchet MS", sans-serif;
+	font-size: .75em;
+	color: olive;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	}
+
+#footer a {
+	color: #1b9d95;
+	text-decoration: none;
+	}
+/* ===== miscellaneous styles ==== */
+
+.clear { clear: both}
+
+ 
+ 
