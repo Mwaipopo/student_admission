@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SOAS - Student Admission</title>
+	<link rel="shortcut icon" href="_images/logo.png">
+	<link href = "_css/main.css" rel = "stylesheet" type = "text/css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+	<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+
+	<body ng-app="myApp" ng-controller="todoCtrl">
+	<div id = "outerDiv">
+		<div id = "header">	</div>
+		<!-- header -->
+
+	 
+		<div id = "content">
+		  <h2>My Todo List</h2>
+
+	<form ng-submit="todoAdd()">
+		<input type="text" ng-model="todoInput" size="50" placeholder="Add New">
+		<input type="submit" value="Add New">
+	</form>
+
+	<br>
+
+	<div ng-repeat="x in todoList">
+		<input type="checkbox" ng-model="x.done" ng-click="todoUpdate(x._id, x.done)")> <span ng-bind="x.text"></span>
+		<button ng-click="todoRemove(x._id)" class="btn btn-danger"><span class="glyphicon glyphicon-remove"> </span></button>
+	</div>
+
+	<p><button>Remove marked</button></p>
+
+	<script>
+	var app = angular.module('myApp', []); 
+	app.controller('todoCtrl', function($scope, $http) {
+		// when landing on the page, get all todos and show them
+		$http.get('/api/todos')
+				.success(function(data) {
+					$scope.todoList = data;
+					console.log(data);
+				})
+				.error(function(data) {
+					console.log('Error: ' + data);
+				});
+
+
+		$scope.todoAdd = function() {
+			$http.post('/api/todos', { text : $scope.todoInput })
+					.success(function(data) {
+						$scope.formData = {}; // clear the form so our user is ready to enter another
+						$scope.todoList = data;
+						//console.log(data);
+					})
+					.error(function(data) {
+						console.log('Error: ' + data);
+					});
+		};
+
+		$scope.todoUpdate = function(id, done) {
+			$http.put('/api/todos/' + id, { done: done })
+					.success(function(data) {
+						$scope.todoList = data;
+						console.log(data);
+					});
+		};
+
+		$scope.todoRemove = function(id) {
+			$http.delete('/api/todos/' + id)
+					.success(function(data) {
+						$scope.todoList = data;
+						console.log(data);
+					})
+					.error(function(data) {
+						console.log('Error: ' + data);
+					});
+		};
+	});
+	</script>
+		</div> <!--content-->
+		<div>
+		<img src = "_images/bottom_image.jpg" width = "1200" height = "20"/>
+		</div>
+	</div><!--outerDiv-->
+	<div id = "footer">
+		<p>Copyright &copy; Student Admission System.</p>	
+	</div>
+	</body>
+</html>
